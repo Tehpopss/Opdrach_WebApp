@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import './style.css';
+import Markt from './Markt_Wervik.jpg'
 import Icon from './icon.png';
 import printMe from './print.js';
 
@@ -125,20 +126,32 @@ function unsubscribeUser() {
 
 function component() {
     const element = document.createElement('div');
-  
-    // Lodash, now imported in this script
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-    element.classList.add('hello');
 
-    // Add the image to our existing div.
-    const myIcon = new Image();
-    myIcon.src = Icon;
-
-    element.appendChild(myIcon);
+    const img = document.createElement('img');
+    img.src = Markt;
+    element.appendChild(img);
 
     const btn = document.createElement('button');
 
-    btn.innerHTML = 'Click me and check the console!';
+    const p = document.createElement('p');
+    p.innerHTML = _.join(['Wekelijkse markt Wervik'],' ');
+
+    element.appendChild(p);
+    const ul = document.createElement('ul');
+
+    const li = document.createElement('li');
+    const li1 = document.createElement('li');
+    const li2 = document.createElement('li');
+    li.innerHTML = _.join (['elke vrijdag tussen 8 en 12 uur'],' ');
+    li1.innerHTML = _.join (['Steenakker (45 staanplaatsen) en Sint-Maartensplein (4 plaatsen)'],' ');
+    li2.innerHTML = _.join ([' Ook op de Sint-Denijsplaats in Geluwe (4 staanplaatsen) zijn op vrijdagmorgen enkele plaatsen voorbehouden voor marktkramers die voeding verkopen'],' ');
+    
+    ul.appendChild(li);
+    ul.appendChild(li1);
+    ul.appendChild(li2);
+    element.appendChild(ul);
+
+    btn.innerHTML = 'Push Button!';
     btn.onclick = updateBtn;
 
     element.appendChild(btn);
